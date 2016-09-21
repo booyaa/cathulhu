@@ -1,0 +1,13 @@
+[package]
+name = "cathulhu"
+version = "0.1.0"
+authors = ["Mark Sta Ana <booyaabooyaabooyaa@gmail.com>"]
+description = "An GitHub cli written in Rust"
+repository = "https://github.com/booyaa/cathulhu"
+readme = "README.md"
+keywords = ["github","cli"]
+license = "Apache-2.0"
+
+[dependencies]
+hubcaps = { git = "https://github.com/carols10cents/hubcaps", branch = "eeyore" }
+dotenv = "*"
