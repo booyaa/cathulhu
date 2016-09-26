@@ -1,6 +1,6 @@
 [package]
 name = "cathulhu"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["Mark Sta Ana <booyaabooyaabooyaa@gmail.com>"]
 description = "An GitHub cli written in Rust"
 repository = "https://github.com/booyaa/cathulhu"
@@ -9,8 +9,6 @@ keywords = ["github","cli"]
 license = "Apache-2.0"
 
 [dependencies]
-# hubcaps = { git = "https://github.com/carols10cents/hubcaps", branch = "eeyore" }
-hubcaps = { path = "/Users/booyaa/Dev/rust/Forks/hubcaps" }
-dotenv = "*"
-hyper = "*"
-clap = "2.13"
+hubcaps = "0.2"
+hyper = "0.9"
+clap = "2"
