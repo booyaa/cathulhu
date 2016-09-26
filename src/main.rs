@@ -42,12 +42,13 @@ fn main() {
                                                                .help("closes an issue"))))
                       .get_matches();
 
+    // janky :(
     if let Some(ref matches) = matches.subcommand_matches("repository") {
         let repo_parts: Vec<_> = matches.value_of("repository name")
                                         .unwrap()
                                         .split('/')
                                         .collect();
-        println!("repo name: {:?}", repo_parts);
+        // println!("repo name: {:?}", repo_parts);
                  ;
         if let Some(ref matches) = matches.subcommand_matches("issue") {
             if matches.is_present("list issue") {
@@ -67,58 +68,10 @@ fn main() {
                     println!("{}|{}|{}", issue.number, issue.title, issue.html_url);
                 }
             } else {
-                println!("issue not implemented.");
+                println!("issue remove not implemented.");
             }
         } else {
-            println!("please select either list or remove.");
+            println!("please enter subcomamand i.e. issue");
         }
     }
-
-
-
-
-    // let ish = repo.issues();
-    // let issues = ish.list(&Default::default()).unwrap();
-    // find only open issues and not prs
-    // let filtered = issues.into_iter()
-    // .filter(|x| x.title.contains("2016-09-28"))
-    // .collect::<Vec<_>>();
-    // println!("{:#?}\nitems: {}", filtered, filtered.len());
-
-    // if filtered.len() == 1 {
-    // println!("found it! {} - {}", filtered[0].title, filtered[0].html_url);
-    // }
-
-
-    // let repo = user_github.repo("booyaa", "hello-homu");
-
-    // // find only open issues and not prs
-    // let filtered = issues.into_iter()
-    //                      .filter(|x| x.html_url.contains("issues"))
-    //                      .collect::<Vec<_>>();
-    //
-    //
-    // println!("{:#?}\nitems: {}", filtered, filtered.len());
-    //
-    // let issue = &filtered[0]; // issue 9
-    // println!("{:#?}", issue);
-    //
-    // let issue_to_close = ish.get(9);
-    // let empty_labels: Vec<String> = Vec::new();
-    //
-    // // the reason this won't is that the compiler can't infer what type of None the parameters are.
-    // // let issue_options = IssueOptions::new("issue directed at homubot",
-    // //   None,
-    // //   None,
-    // //   None,
-    // //   empty_labels);
-    // let res = issue_to_close.edit(&IssueOptions {
-    //     title: "issue directed at homubot".into(),
-    //     body: None,
-    //     assignee: None,
-    //     milestone: None,
-    //     labels: empty_labels,
-    // });
-    //
-    // println!("Issue #9 edit result: {:#?}\n", res);
 }
