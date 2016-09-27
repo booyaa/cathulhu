@@ -12,6 +12,14 @@ cargo install cathulhu
 
 # Usage
 
+You need a GitHub Personal Access Token. You can generate one [here][1] (you
+only need to give access to public repos). Store your token in an environment
+variable called `CATHULHU_GH_PAT`. You can add these to your `.bashrc` by
+entering the following:
+
+
+`export CATHULHU_GH_PAT=keep_it_safe_keep_it_secret`
+
 There's only one API endpoint(issues) and flag (list) implemented:
 
 ```
@@ -35,3 +43,5 @@ Copyright 2016 Mark Sta Ana.
 Licensed under the Apache License, Version 2.0 <LICENSE-APACHE or
 http://www.apache.org/licenses/LICENSE-2.0> at your option. This file may not
 be copied, modified, or distributed except according to those terms.
+
+[1]:https://github.com/settings/tokens
