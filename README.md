@@ -4,6 +4,14 @@
 
 Cathulhu is a GitHub cli written in Rust.
 
+Warning 0.1.x's interface will be changing frequently. I'll warn of breaking changes in the a section below.
+
+# Breaking changes
+
+## v0.1.4
+
+- list - `-l (L) / --list` is now `-1 (one)/--oneline`
+
 # Installation
 
 ```

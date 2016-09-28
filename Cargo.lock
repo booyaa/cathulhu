@@ -1,6 +1,6 @@
 [root]
 name = "cathulhu"
-version = "0.1.2"
+version = "0.1.4"
 dependencies = [
  "clap 2.13.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "hubcaps 0.2.3 (registry+https://github.com/rust-lang/crates.io-index)",

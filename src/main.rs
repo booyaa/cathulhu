@@ -36,10 +36,22 @@ fn main() {
         let repository = user_github.repo(repo.owner, repo.name);
         let issues_dataset = repository.issues();
 
-        if issues_matches.is_present("list issues") {
+        if issues_matches.is_present("list issues as one line") {
             let issues = issues_dataset.list(&Default::default()).unwrap();
             for issue in issues {
                 println!("{}|{}|{}", issue.number, issue.title, issue.html_url);
+            }
+        } else if issues_matches.is_present("list issues in detail") {
+            let issues = issues_dataset.list(&Default::default()).unwrap();
+            for issue in issues {
+                println!("issue #{} - {} ({})",
+                         issue.number,
+                         issue.title,
+                         issue.html_url);
+                println!("body: {}", issue.body);
+                println!("labels: {:#?}", issue.labels);
+                println!("assignees: {:#?}", issue.assignee);
+                println!("-*-");
             }
         } else {
             println!("{}", issues_matches.usage());
@@ -69,10 +81,14 @@ fn app_settings<'a>() -> ArgMatches<'a> {
                                  .help("Set repository name")
                                  .required(true)
                                  .index(1))
-                        .arg(Arg::with_name("list issues")
-                                 .short("l")
-                                 .long("list")
+                        .arg(Arg::with_name("list issues as one line")
+                                 .short("1")
+                                 .long("oneline")
                                  .help("lists open issues by number, title and url (pipe \
-                                        delimited)")))
+                                        delimited)"))
+                        .arg(Arg::with_name("list issues in detail")
+                                 .short("d")
+                                 .long("full")
+                                 .help("lists open issues in report mode i.e. all fields")))
         .get_matches()
 }
